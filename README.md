@@ -82,7 +82,7 @@ npm start
 
 ## 📌 How to Use
 
-1. Access the admin form to create and publish articles
+1. Access the admin form to create and publish articles(Add "/admin" to the homepage url)
 2. View published articles on the homepage
 3. Click "Read More" to access full article pages
 
