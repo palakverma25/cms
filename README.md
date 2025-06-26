@@ -15,21 +15,19 @@ A simple Content Management System that allows writers to draft, preview, publis
 
 ## 📁 Project Structure
 
+```
 /
-├── client/ # React frontend (deployed on Vercel)
-│ ├── public/
-│ ├── src/
-│ └── vercel.json
-└── server/ # Express backend (deployed on Render)
-├── controllers/
-├── models/
-├── routes/
-├── app.js
-└── package.json
-
-yaml
-Copy
-Edit
+├── client/                 # React frontend (deployed on Vercel)
+│   ├── public/
+│   ├── src/
+│   └── vercel.json
+└── server/                 # Express backend (deployed on Render)
+    ├── controllers/
+    ├── models/
+    ├── routes/
+    ├── app.js
+    └── package.json
+```
 
 ---
 
@@ -42,64 +40,64 @@ cd server
 npm install
 
 # Create a .env file containing:
-MONGO_URI=<your MongoDB Atlas connection string>
+# MONGO_URI=<your MongoDB Atlas connection string>
 
-npm start
-Runs backend at: http://localhost:5000
+npm run dev
+```
 
-Sample endpoint: GET /api/articles
+**Runs backend at:** http://localhost:5000  
+**Sample endpoint:** GET /api/articles
 
-🔹 Frontend (React)
-bash
-Copy
-Edit
+### 🔹 Frontend (React)
+
+```bash
 cd client
 npm install
 
 # Create a .env file containing:
-REACT_APP_API_BASE=http://localhost:5000
+# REACT_APP_API_BASE=http://localhost:5000
 
 npm start
-Runs frontend at: http://localhost:3000
+```
 
-🌍 Production Deployments
-Backend (Render): https://cms-1-taim.onrender.com
+**Runs frontend at:** http://localhost:3000
 
-Frontend (Vercel): https://<your-vercel-url>.vercel.app
+---
 
-(Replace with your actual deployed URLs)
+## 🌍 Production Deployments
 
-🧪 Features
-Writer-friendly admin form with auto-slug generation
+- **Backend (Render):** https://cms-1-taim.onrender.com
+- **Frontend (Vercel):** https://cms-eight-mocha.vercel.app/
+---
 
-Live preview before publishing
+## 🧪 Features
 
-Full create and read functionality via Express API
+- Writer-friendly admin form with auto-slug generation
+- Live preview before publishing
+- Full create and read functionality via Express API
+- Publicly viewable article listings and detailed pages (`/articles/:slug`)
+- Fully deployed.
 
-Publicly viewable article listings and detailed pages (/articles/:slug)
+---
 
-Fully deployed with working demos
+## 📌 How to Use
 
-📌 How to Use
-Access the admin form to create and publish articles.
+1. Access the admin form to create and publish articles
+2. View published articles on the homepage
+3. Click "Read More" to access full article pages
 
-View published articles on the homepage.
+---
 
-Click “Read More” to access full article pages.
+## 🛠 Deployment Overview
 
-🛠 Deployment Overview
-Frontend: Hosted on Vercel with client/ as root and vercel.json for routing
+- **Frontend:** Hosted on Vercel with `client/` as root and `vercel.json` for routing
+- **Backend:** Hosted on Render, with `server/` as root
 
-Backend: Hosted on Render, with server/ as root
+---
 
-🔧 Future Enhancements
-Add authentication (JWT or a third-party provider)
+## 🔧 Future Enhancements
 
-Support rich-text or markdown editors
-
-Enable image uploads
-
-Enhance SEO and make UI mobile-responsive
-
-🙌 Contributing
-Feel free to fork, report issues, or submit pull requests to enhance this project!
+- Add authentication (JWT or a third-party provider)
+- Support rich-text or markdown editors
+- Enable image uploads
+- Enhance SEO and make UI mobile-responsive
