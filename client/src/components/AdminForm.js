@@ -9,30 +9,29 @@ const AdminForm = () => {
     tags: '',
     content: ''
   });
-
   const [preview, setPreview] = useState(false);
 
-  // Automatically generate slug when title is typed
-  const handleTitleChange = (e) => {
+  const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:5000';
+
+  const handleTitleChange = e => {
     const title = e.target.value;
-    const autoSlug = title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+    const autoSlug = title
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w-]+/g, '');
     setFormData({ ...formData, title, slug: autoSlug });
   };
 
-  // Generic change handler for other inputs
-  const handleChange = (e) => {
+  const handleChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
-  // Handle publish
   const handlePublish = async () => {
     try {
       const payload = {
         ...formData,
         tags: formData.tags.split(',').map(tag => tag.trim())
       };
-
-      await axios.post('http://localhost:5000/api/articles', payload);
+      await axios.post(`${API_BASE}/api/articles`, payload);
       alert("Article published!");
       setFormData({ title: '', slug: '', coverImage: '', tags: '', content: '' });
       setPreview(false);
@@ -91,7 +90,7 @@ const AdminForm = () => {
         style={{ width: '100%', padding: 8, marginBottom: 10 }}
       />
 
-      <div style={{ display: 'flex', gap: '10px' }}>
+      <div style={{ display: 'flex', gap: 10 }}>
         <button onClick={() => setPreview(true)}>Preview</button>
         <button onClick={handlePublish}>Publish</button>
       </div>

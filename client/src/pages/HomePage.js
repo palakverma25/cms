@@ -5,15 +5,13 @@ import axios from 'axios';
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
 
+  const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:5000';
+
   useEffect(() => {
-    axios.get('http://localhost:5000/api/articles')
-      .then((res) => {
-        setArticles(res.data);
-      })
-      .catch((err) => {
-        console.error("Error fetching articles:", err);
-      });
-  }, []);
+    axios.get(`${API_BASE}/api/articles`)
+      .then((res) => setArticles(res.data))
+      .catch((err) => console.error("Error fetching articles:", err));
+  }, [API_BASE]);
 
   return (
     <div style={{ maxWidth: 900, margin: 'auto', padding: 20 }}>
@@ -23,7 +21,15 @@ const HomePage = () => {
         <p>No articles published yet.</p>
       ) : (
         articles.map((article) => (
-          <div key={article._id} style={{ border: '1px solid #ddd', padding: 20, margin: '20px 0', borderRadius: 8 }}>
+          <div
+            key={article._id}
+            style={{
+              border: '1px solid #ddd',
+              padding: 20,
+              margin: '20px 0',
+              borderRadius: 8
+            }}
+          >
             {article.coverImage && (
               <img
                 src={article.coverImage}
