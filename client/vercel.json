@@ -9,10 +9,8 @@
       }
     }
   ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
-  ]
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "installCommand": "npm install --legacy-peer-deps"
 }
