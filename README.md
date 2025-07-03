@@ -76,6 +76,8 @@ npm start
 - Live preview before publishing
 - Full create and read functionality via Express API
 - Publicly viewable article listings and detailed pages (`/articles/:slug`)
+- Support rich-text or markdown editors
+- Enable image uploads
 - Fully deployed.
 
 ---
@@ -96,8 +98,6 @@ npm start
 ---
 
 ## 🔧 Future Enhancements
-
 - Add authentication (JWT or a third-party provider)
-- Support rich-text or markdown editors
-- Enable image uploads
+
 - Enhance SEO and make UI mobile-responsive
